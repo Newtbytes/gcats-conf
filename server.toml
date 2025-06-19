@@ -271,6 +271,11 @@ type = "modrinth"
 id = "netherportalfix"
 version = "3xwbxqcv"
 
+[[mods]]
+type = "modrinth"
+id = "better-wither-skull-rates"
+version = "IKonkgv1"
+
 
 # MARK: Navigation
 [[mods]]
