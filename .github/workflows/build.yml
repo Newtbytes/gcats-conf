@@ -24,7 +24,7 @@ jobs:
           if [ ! -f "pakku.json" ]; then
             echo "Could not find 'pakku.json'" && exit 1
           else
-            echo "path='pakku.json'" >> $GITHUB_OUTPUT
+            echo "path=pakku.json" >> $GITHUB_OUTPUT
           fi
 
       - name: Check pakku-lock.json
@@ -33,7 +33,7 @@ jobs:
           if [ ! -f "pakku-lock.json" ]; then
             echo "Could not find 'pakku-lock.json'" && exit 1
           else
-            echo "path='pakku-lock.json'" >> $GITHUB_OUTPUT
+            echo "path=pakku-lock.json" >> $GITHUB_OUTPUT
           fi
 
   info:
