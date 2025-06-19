@@ -222,12 +222,11 @@ jobs:
           target_commitish: ${{ github.ref_name }}
           body: |
             ## ${ needs.info.outputs.server_name } v${{ needs.info.outputs.server_version }}
-            ${% if needs.info.outputs.readme_diff != '' %}
+
             ### Modpack Changes
             ```diff
             ${ needs.info.outputs.readme_diff }
             ```
-            ${% endif %}
           files: |
             ${{ needs.mrpack-export.outputs.filename }}
             ${{ needs.packwiz-export.outputs.filename }}
