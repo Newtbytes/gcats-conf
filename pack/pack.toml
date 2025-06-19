@@ -1,5 +1,5 @@
 name = "GCATs"
-version = "f206974bee332d593705de5b18aa9de2070e0b7b"
+version = "83403f22b7d4366d94b1400c144e15879d8de261"
 pack-format = "packwiz:1.1.0"
 
 [index]
@@ -10,5 +10,5 @@ metafile = false
 preserve = false
 
 [versions]
-minecraft = "1.21.5"
 fabric = "0.16.14"
+minecraft = "1.21.5"
