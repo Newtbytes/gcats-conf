@@ -33,7 +33,7 @@ jobs:
     - name: Run mcman export packwiz
       run: mcman export packwiz
       env:
-        MODPACK_VERSION: ${{ github.sha }}
+        MODPACK_VERSION: ${{ needs.info.outputs.server_version }}
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
@@ -45,7 +45,7 @@ jobs:
     - name: Upload packwiz zip
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ needs.info.outputs.server_version }}/packwiz
+        name: ${{ needs.info.outputs.server_version }}.packwiz
         path: ${{ needs.info.outputs.server_name }}-packwiz.zip
 
   mrpack-export:
@@ -68,7 +68,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{ needs.info.outputs.server_version }}/mrpack
+        name: ${{ needs.info.outputs.server_version }}.mrpack
         path: ${{ needs.info.outputs.server_name }}.mrpack
 
   info:
