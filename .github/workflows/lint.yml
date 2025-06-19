@@ -31,16 +31,19 @@ jobs:
 
       - name: Get pakku.json
         id: pakku
-        run: echo "value=${cat pakku.json}" >> $GITHUB_OUTPUT
-
-      - name: Get server Minecraft version
-        id: mc_version
         run: |
           if [ ! test -f "pakku.json" ]; then
             echo "Could not find 'pakku.json'" && exit 1
           else
-            echo "value=${{ fromJson(steps.pakku.outputs.value).name }}"" >> $GITHUB_OUTPUT
+            echo 'PAKKU_JSON<<EOF' >> $GITHUB_ENV
+            cat ./package.json >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
           fi
+
+      - name: Get server Minecraft version
+        id: mc_version
+        run: |
+          echo "value=${{ fromJson(steps.pakku.outputs.value).name }}"" >> $GITHUB_OUTPUT
 
   validate-datapack:
     name: Validate Minecraft datapack 'Modally Stranded'
