@@ -16,6 +16,8 @@ jobs:
       pakku_json: ${{ steps.pakku_lock.outputs.path }}
 
     steps:
+      - uses: actions/checkout@v2
+
       - name: Check pakku.json
         id: pakku
         run: |
