@@ -149,13 +149,6 @@ id = "geophilic"
 version = "P4R9W6RV"
 
 [[mods]]
-type = "url"
-url = "https://github.com/Crystalis7/Hybrid-Beta/releases/download/source-v1.0.4%2F1.21.5/cascades-source-v1.0.4-1.21.5.zip"
-# FIXME: this directory escalation is probably undefined behavior in mcman
-# ...but it works!
-filename = "../world/datapacks/cascades-source-v1.0.4-1.21.5.zip"
-
-[[mods]]
 type = "modrinth"
 id = "nullscape"
 version = "4qC7kfiC"
