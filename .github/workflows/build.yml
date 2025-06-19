@@ -153,5 +153,5 @@ jobs:
           name: ${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}
           path: |
             ${{ steps.mrpack.outputs.dir }}/${{ steps.mrpack.outputs.filename }}
-            ${{ steps.serverpack.outputs.dir }}/${{ steps.mrpack.outputs.filename }}
+            ${{ steps.serverpack.outputs.dir }}/${{ steps.serverpack.outputs.filename }}
           if-no-files-found: error
