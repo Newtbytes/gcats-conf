@@ -60,7 +60,7 @@ jobs:
         id: server_version
         uses: notiz-dev/github-action-json-property@v0.2.0
         with:
-          path: ${{ needs.check.outputs.pakku }}`
+          path: ${{ needs.check.outputs.pakku }}
           prop_path: version
 
       - name: Get previous tag
