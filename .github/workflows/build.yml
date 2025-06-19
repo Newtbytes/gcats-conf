@@ -139,7 +139,15 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Install pakku
+      - name: Cache pakku.jar
+        id: cache-pakku
+        uses: actions/cache@v3
+        with:
+          path: pakku.jar
+          key: pakku-${{ env.PAKKU_TAG }}
+
+      - name: Download pakku.jar if not cached
+        if: steps.cache-pakku.outputs.cache-hit != 'true'
         run: |
           curl -OL https://github.com/juraj-hrivnak/Pakku/releases/download/${{ env.PAKKU_TAG }}/pakku.jar
 
