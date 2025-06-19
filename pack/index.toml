@@ -289,6 +289,12 @@ metafile = true
 preserve = false
 
 [[files]]
+file = "mods/BetterWitherSkullRates.pw.toml"
+hash = "128eb32d59cd13edfa60dadb43b069a6e51563ad7a89dc59457485dfa08c3dc2"
+metafile = true
+preserve = false
+
+[[files]]
 file = "mods/just-atlas-2.1.pw.toml"
 hash = "8d58c56925543267c2c9a1d8b5f8014e0f7d5c7ad322575f0ce314020b2c7d02"
 metafile = true
