@@ -106,8 +106,7 @@ jobs:
 
       - name: Build resource pack
         run: |
-          python pack.py pack.toml build/resourcepack
-          mv server/pack.zip ${{ steps.get_filename.outputs.filename }}
+          python pack.py pack.toml build/${{ steps.get_filename.outputs.filename }}
 
       - uses: actions/upload-artifact@v4
         with:
