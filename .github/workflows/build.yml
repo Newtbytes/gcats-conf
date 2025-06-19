@@ -42,8 +42,8 @@ jobs:
     needs: [check]
 
     outputs:
-      server_name: ${{ steps.server_name.outputs.value }}
-      server_version: ${{ steps.server_version.outputs.value }}
+      server_name: ${{ steps.server_name.outputs.prop }}
+      server_version: ${{ steps.server_version.outputs.prop }}
       make_release: ${{ steps.check_release.outputs.make_release }}
 
     steps:
