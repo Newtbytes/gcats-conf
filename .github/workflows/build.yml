@@ -131,6 +131,9 @@ jobs:
   publish-release:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     needs: [info, packwiz-export, mrpack-export]
     if: ${{ needs.info.outputs.make_release == 'true' }}
 
