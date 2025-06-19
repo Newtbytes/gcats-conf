@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   packwiz-export:
@@ -28,3 +30,23 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Update packwiz pack
+
+  mrpack-export:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install mcman
+      run: |
+        sudo curl -L -o /usr/bin/mcman https://github.com/ParadigmMC/mcman/releases/latest/download/mcman
+        sudo chmod +x /usr/bin/mcman
+
+    - name: Run mcman export mrpack
+      run: mcman export mrpack
+      env:
+        MODPACK_VERSION: ${{ github.sha }}
+
+    - uses: actions/upload-artifact@v4
+      with:
+        path: GCATs.mrpack
