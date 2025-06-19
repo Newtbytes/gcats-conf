@@ -145,7 +145,7 @@ jobs:
 
       - name: Install pakku
         run: |
-          curl -O https://github.com/juraj-hrivnak/Pakku/releases/download/${{ env.PAKKU_TAG }}/pakku.jar
+          curl -OL https://github.com/juraj-hrivnak/Pakku/releases/download/${{ env.PAKKU_TAG }}/pakku.jar
 
       - name: Export modpack
         run: |
