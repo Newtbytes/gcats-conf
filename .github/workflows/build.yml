@@ -119,10 +119,6 @@ jobs:
 
     needs: [info]
 
-    outputs:
-      mrpack: ${{ steps.mrpack.outputs }}
-      serverpack: ${{ steps.serverpack.outputs }}
-
     steps:
       - uses: actions/checkout@v2
 
