@@ -106,6 +106,7 @@ jobs:
 
       - name: Build resource pack
         run: |
+          mkdir -p build
           python pack.py pack.toml build/${{ steps.get_filename.outputs.filename }}
 
       - uses: actions/upload-artifact@v4
