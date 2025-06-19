@@ -45,6 +45,7 @@ jobs:
     - name: Upload packwiz zip
       uses: actions/upload-artifact@v4
       with:
+        name: ${{ needs.info.outputs.server_version }}/packwiz
         path: ${{ needs.info.outputs.server_name }}-packwiz.zip
 
   mrpack-export:
@@ -67,6 +68,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
+        name: ${{ needs.info.outputs.server_version }}/mrpack
         path: ${{ needs.info.outputs.server_name }}.mrpack
 
   info:
