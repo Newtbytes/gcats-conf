@@ -19,7 +19,7 @@ jobs:
       - name: Check pakku.json
         id: pakku
         run: |
-          if [ ! test -f "pakku.json" ]; then
+          if [ ! -f "pakku.json" ]; then
             echo "Could not find 'pakku.json'" && exit 1
           else
             echo "path='pakku.json'" >> $GITHUB_OUTPUT
@@ -28,7 +28,7 @@ jobs:
       - name: Check pakku_lock.json
         id: pakku_lock
         run: |
-          if [ ! test -f "pakku_lock.json" ]; then
+          if [ ! -f "pakku_lock.json" ]; then
             echo "Could not find 'pakku_lock.json'" && exit 1
           else
             echo "path='pakku_lock.json'" >> $GITHUB_OUTPUT
