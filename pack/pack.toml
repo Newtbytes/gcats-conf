@@ -1,5 +1,5 @@
 name = "GCATs"
-version = "83403f22b7d4366d94b1400c144e15879d8de261"
+version = "v0.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
