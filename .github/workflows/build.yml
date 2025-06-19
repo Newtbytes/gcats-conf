@@ -13,7 +13,7 @@ jobs:
 
     outputs:
       pakku: ${{ steps.pakku.outputs.path }}
-      pakku_json: ${{ steps.pakku_lock.outputs.path }}
+      pakku_json: ${{ steps.pakku-lock.outputs.path }}
 
     steps:
       - uses: actions/checkout@v2
@@ -27,13 +27,13 @@ jobs:
             echo "path='pakku.json'" >> $GITHUB_OUTPUT
           fi
 
-      - name: Check pakku_lock.json
-        id: pakku_lock
+      - name: Check pakku-lock.json
+        id: pakku-lock
         run: |
-          if [ ! -f "pakku_lock.json" ]; then
-            echo "Could not find 'pakku_lock.json'" && exit 1
+          if [ ! -f "pakku-lock.json" ]; then
+            echo "Could not find 'pakku-lock.json'" && exit 1
           else
-            echo "path='pakku_lock.json'" >> $GITHUB_OUTPUT
+            echo "path='pakku-lock.json'" >> $GITHUB_OUTPUT
           fi
 
   info:
