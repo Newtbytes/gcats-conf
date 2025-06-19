@@ -5,6 +5,12 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - '**.toml'
+      - '**.json'
+      - 'config/**'
+      - 'datapacks/**'
+      - '.github/workflows/build.yml'
   workflow_dispatch:
 
 jobs:
@@ -81,12 +87,16 @@ jobs:
           file: 'server.toml'
           field: 'name'
 
-      - name: Get server version
+      - name: Check server version
         uses: SebRollen/toml-action@v1.2.0
-        id: server_version
+        id: check_server_version
         with:
           file: 'server.toml'
           field: 'server_version'
+      
+      - name: Get server version
+        id: server_version
+        run: echo "value=v${{ steps.check_server_version.outputs.value }}" >> $GITHUB_OUTPUT
 
       - name: Check if tag exists
         uses: mukunku/tag-exists-action@v1.6.0
@@ -97,7 +107,7 @@ jobs:
       - name: Check if new release should be generated
         id: check_release
         run: |
-          echo "make_release=${{ steps.check_tag.outputs.exists == 'false' }}" >> $GITHUB_OUTPUT
+          echo "make_release=${{ steps.check_tag.outputs.exists == 'false' && github.ref_name == 'main' }}" >> $GITHUB_OUTPUT
 
   publish-release:
     runs-on: ubuntu-latest
@@ -108,6 +118,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v4
+
+      - name: Check if required artifacts exist
+        id: check_artifact
+        shell: bash
+        run: |
+          if [ ! -f ${{ needs.info.outputs.server_version }}-packwiz.zip ]; then
+            echo '::error::No value found for artifact `${{ needs.info.outputs.server_version }}-packwiz.zip`.' && exit 1
+          fi
+
+          if [ ! -f ${{ needs.info.outputs.server_version }}.mrpack ]; then
+            echo '::error::No value found for artifact `${{ needs.info.outputs.server_version }}.mrpack`.' && exit 1
+          fi
 
       - name: Publish release
         id: release
