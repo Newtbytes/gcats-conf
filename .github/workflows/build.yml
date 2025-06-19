@@ -11,17 +11,27 @@ jobs:
   check:
     runs-on: ubuntu-latest
 
+    outputs:
+      pakku: ${{ steps.pakku.outputs.path }}
+      pakku_json: ${{ steps.pakku_lock.outputs.path }}
+
     steps:
       - name: Check pakku.json
+        id: pakku
         run: |
           if [ ! test -f "pakku.json" ]; then
             echo "Could not find 'pakku.json'" && exit 1
+          else
+            echo "path='pakku.json'" >> $GITHUB_OUTPUT
           fi
-      
+
       - name: Check pakku_lock.json
+        id: pakku_lock
         run: |
           if [ ! test -f "pakku_lock.json" ]; then
             echo "Could not find 'pakku_lock.json'" && exit 1
+          else
+            echo "path='pakku_lock.json'" >> $GITHUB_OUTPUT
           fi
 
   info:
@@ -37,17 +47,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get pakku.json
-        id: pakku
-        run: echo "value=${cat pakku.json}" >> $GITHUB_OUTPUT
+      - name: Get JSON Property
+        uses: notiz-dev/github-action-json-property@v0.2.0
 
       - name: Get server name
         id: server_name
-        run: echo "value=${{ fromJson(steps.pakku.outputs.value).name }}"" >> $GITHUB_OUTPUT
+        uses: notiz-dev/github-action-json-property@v0.2.0
+        with:
+          path: ${{ needs.check.outputs.pakku }}
+          prop_path: name
 
       - name: Get server version
         id: server_version
-        run: echo "value=${{ fromJson(steps.pakku.outputs.value).version }}"" >> $GITHUB_OUTPUT
+        uses: notiz-dev/github-action-json-property@v0.2.0
+        with:
+          path: ${{ needs.check.outputs.pakku }}`
+          prop_path: version
 
       - name: Get previous tag
         id: previous_tag
