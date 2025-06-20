@@ -193,6 +193,7 @@ jobs:
       - name: Extract server pack
         run: |
           mkdir -p run
+          ls server-artifact
           unzip -q -o "server-artifact/${{ needs.build-modpack.outputs.serverpack_filename }}" -d run
 
       - name: Run server
