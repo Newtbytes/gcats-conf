@@ -192,7 +192,7 @@ jobs:
       - name: Extract server pack
         run: |
           mkdir -p run
-          unzip -q -o ${{ needs.build-modpack.outputs.serverpack_dir }}/${{ needs.build-modpack.outputs.serverpack_filename }} -d run
+          unzip -q -o ${{ needs.build-modpack.outputs.serverpack_filename }} -d run
 
       - name: Run server
         uses: headlesshq/mc-server-test@1.0.0
