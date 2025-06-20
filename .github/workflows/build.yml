@@ -121,6 +121,10 @@ jobs:
 
     needs: [info]
 
+    outputs:
+      serverpack_dir: ${{ steps.serverpack.outputs.dir }}
+      serverpack_filename: ${{ steps.serverpack.outputs.filename }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -188,7 +192,7 @@ jobs:
       - name: Extract server pack
         run: |
           mkdir -p run
-          unzip -q -o ${{ needs.build-modpack.outputs.serverpack.dir }}/${{ needs.build-modpack.outputs.serverpack.filename }} -d run
+          unzip -q -o ${{ needs.build-modpack.outputs.serverpack_dir }}/${{ needs.build-modpack.outputs.serverpack_filename }} -d run
 
       - name: Run server
         timeout-minutes: 3
