@@ -141,7 +141,7 @@ jobs:
           java-version: '21'
 
       - name: Cache pakku.jar
-        id: cache-pakku
+        id: cache-pakku-jar
         uses: actions/cache@v4
         with:
           path: pakku.jar
