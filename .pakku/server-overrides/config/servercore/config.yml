@@ -13,26 +13,26 @@ features:
   # That includes chunks loaded by enderpearls or portals, breaking vanilla behavior.
   chunk-tick-distance-affects-random-ticks: false
   # Prevents lagspikes caused by players moving into unloaded chunks.
-  prevent-moving-into-unloaded-chunks: false
+  prevent-moving-into-unloaded-chunks: true
   # The amount of seconds between auto-saves when /save-on is active.
-  autosave-interval-seconds: 300
+  autosave-interval-seconds: 450
   # The fraction that decides the chance of experience orbs being able to merge with each other. (1 = 100%, 40 = 2.5%)
   # Note that just like in vanilla, experience orbs will still need to be of the same size to actually merge.
-  xp-merge-fraction: 40
+  xp-merge-fraction: 20
   # The radius in blocks that experience orbs will merge at.
-  xp-merge-radius: 0.5
+  xp-merge-radius: 3.0
   # The radius in blocks that items will merge at.
-  item-merge-radius: 0.5
+  item-merge-radius: 2.0
   lobotomize-villagers:
     # Makes villagers tick less often if they are stuck in a 1x1 space.
-    enabled: false
+    enabled: true
     # Decides the interval in between villager ticks when lobotomized.
     tick-interval: 20
 
 # Automatically modifies dynamic settings based on the server performance.
 dynamic:
   # Enables dynamic performance checks.
-  enabled: false
+  enabled: true
   # The average MSPT to target.
   target-mspt: 35
   # The default values for dynamic settings.
@@ -119,22 +119,22 @@ mob-spawning:
   # ► additional-capacity = Additional capacity for this specific mobcap. Decides how much it can spawn over the regular mobcap.
   # It is recommended to allow them to spawn a bit over the regular mobcap as they would otherwise never get a chance to spawn.
   zombie-reinforcements:
-    enforce-mobcap: false
+    enforce-mobcap: true
     additional-capacity: 32
 
   # Mobcap settings for zombified piglin spawning from nether portal random ticks.
   nether-portal-randomticks:
-    enforce-mobcap: false
+    enforce-mobcap: true
     additional-capacity: 32
 
   # Mobcap settings for mobs spawned from monster spawners.
   monster-spawners:
-    enforce-mobcap: false
+    enforce-mobcap: true
     additional-capacity: 32
 
   # Mobcap settings for silverfish spawned from the infested potion effect.
   infested:
-    enforce-mobcap: false
+    enforce-mobcap: true
     additional-capacity: 32
 
   # A list of mob categories with their respective mobcap and spawn interval.
@@ -191,7 +191,7 @@ commands:
 # Note: while this is a very powerful feature, it can still slow down mobfarms and break very specific technical contraptions.
 activation-range:
   # Enables activation range.
-  enabled: false
+  enabled: true
   # Briefly ticks entities newly added to the world for 10 seconds (includes both spawning and loading).
   # This gives them a chance to properly immunize when they are spawned if they should be. Can be helpful for mobfarms.
   tick-new-entities: true
@@ -200,7 +200,7 @@ activation-range:
   use-vertical-range: false
   # Skips 1/4th of entity ticks whilst not immune.
   # This affects entities that are within the activation range, but not immune (for example by falling or being in water).
-  skip-non-immune: false
+  skip-non-immune: true
   # Allows villagers to tick regardless of the activation range when panicking.
   villager-tick-panic: true
   # The time in seconds that a villager needs to be inactive for before obtaining work immunity (if it has work tasks).
@@ -243,7 +243,7 @@ activation-range:
         - 'typeof:raider'
 
     - name: 'water'
-      activation-range: 16
+      activation-range: 24
       tick-interval: 20
       wakeup-interval: 60
       extra-height-up: false
