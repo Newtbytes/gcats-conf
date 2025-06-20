@@ -1,10 +1,4 @@
 {
     "name": "GCATs",
-    "version": "v0.2",
-    "overrides": [
-        "config",
-        "server.properties",
-        "world",
-        "mods"
-    ]
+    "version": "v0.2"
 }
