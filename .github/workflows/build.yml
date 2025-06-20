@@ -188,11 +188,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}
+          path: server-artifact
 
       - name: Extract server pack
         run: |
           mkdir -p run
-          unzip -q -o "${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}/${{ needs.build-modpack.outputs.serverpack_filename }}" -d run
+          unzip -q -o "server-artifact/${{ needs.build-modpack.outputs.serverpack_filename }}" -d run
 
       - name: Run server
         uses: headlesshq/mc-server-test@1.0.0
