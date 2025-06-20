@@ -2228,6 +2228,45 @@
             ]
         },
         {
+            "pakku_id": "N1LAq8Zt5nNrxjGA",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "styled-chat"
+            },
+            "name": {
+                "modrinth": "Styled Chat"
+            },
+            "id": {
+                "modrinth": "doqSKB0e"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "styled-chat-2.8.0+1.21.5.jar",
+                    "mc_versions": [
+                        "1.21.5-rc1",
+                        "1.21.5"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/doqSKB0e/versions/E1RdcKyb/styled-chat-2.8.0+1.21.5.jar",
+                    "id": "E1RdcKyb",
+                    "parent_id": "doqSKB0e",
+                    "hashes": {
+                        "sha512": "60bcd6541ec408241f5e2fd3711afd3b7b572c8fbe6dbdbea3c7486288f7e5424a37e07bad0dee355d0cf2d7b13933ed8b9b7904807c8e26146611b1ec3fcca9",
+                        "sha1": "c63c7a435a73cfc8cf1ff79691dd0a4b26672b03"
+                    },
+                    "required_dependencies": [],
+                    "size": 508034,
+                    "date_published": "2025-03-24T11:05:32.242380Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "f91H9Z1fZ1jmbaZN",
             "pakku_links": [
                 "lIj5DZZ5YWpHpSsc"
