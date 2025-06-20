@@ -140,12 +140,20 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Cache pakku.jar
-        id: cache-pakku
+      - name: Cache pakku jar
+        id: cache-jar
         uses: actions/cache@v3
         with:
           path: pakku.jar
           key: pakku-${{ env.PAKKU_TAG }}
+
+      - name: Cache pakku
+        uses: actions/cache@v3
+        id: cache-pakku
+        with:
+          path: build/.cache
+          key: pakku-cache-${{ hashFiles('pakku-lock.json') }}
+          restore-keys: pakku-cache-
 
       - name: Download pakku.jar if not cached
         if: steps.cache-pakku.outputs.cache-hit != 'true'
