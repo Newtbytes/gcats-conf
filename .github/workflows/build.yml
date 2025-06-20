@@ -173,7 +173,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    needs: [build-modpack]
+    needs: [build-modpack, info]
 
     steps:
       - uses: actions/checkout@v4
