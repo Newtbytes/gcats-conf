@@ -69,7 +69,6 @@ jobs:
         with:
           # TODO: unhardcode server name
           resourcepack: build/GCATs.zip
-          config: config.json
 
   lint-yaml:
     name: Lint YAML
