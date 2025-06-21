@@ -65,7 +65,7 @@ jobs:
           beet
 
       - name: Run pack validator
-        uses: MrKinau/ResourcePackValidator@v2
+        uses: MrKinau/ResourcePackValidator@22b7222a46e81b6b1657d154138bb1b2edd1faf7
         with:
           # TODO: unhardcode server name
           resourcepack: build/GCATs.zip
