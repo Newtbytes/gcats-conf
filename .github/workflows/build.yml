@@ -109,10 +109,10 @@ jobs:
       filename: ${{ steps.get_filename.outputs.filename }}
 
     if: |
-      contains(${{ info.changed-files.outputs.files }}, 'beet') ||
-      contains(${{ info.changed-files.outputs.files }}, 'datapack') ||
-      contains(${{ info.changed-files.outputs.files }}, 'resourcepack') ||
-      contains(${{ info.changed-files.outputs.files }}, 'build') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'beet') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'datapack') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'resourcepack') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'build') ||
       github.ref_name == 'main'
 
     steps:
@@ -148,10 +148,10 @@ jobs:
     needs: [info]
 
     if: |
-      contains(${{ info.changed-files.outputs.files }}, 'pakku') ||
-      contains(${{ info.changed-files.outputs.files }}, 'mod') ||
-      contains(${{ info.changed-files.outputs.files }}, 'datapack') ||
-      contains(${{ info.changed-files.outputs.files }}, 'build') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'pakku') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'mod') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'datapack') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'build') ||
       github.ref_name == 'main'
 
     steps:
