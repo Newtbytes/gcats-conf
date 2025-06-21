@@ -35,7 +35,7 @@ jobs:
           echo "release=${{ steps.check_tag.outputs.exists == 'false' && github.ref_name == 'main' }}" >> $GITHUB_OUTPUT
 
       - name: Download build artifacts
-        if: steps.check_release.outputs.release == 'true'
+        if: ${{ steps.check_release.outputs.release == 'true' }}
         uses: actions/download-artifact@v4
         with:
           path: artifacts
