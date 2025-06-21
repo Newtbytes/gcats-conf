@@ -149,6 +149,7 @@ jobs:
       contains(${{ needs.info.changed-files.outputs.files }}, 'pakku') ||
       contains(${{ needs.info.changed-files.outputs.files }}, 'mod') ||
       contains(${{ needs.info.changed-files.outputs.files }}, 'datapack') ||
+      contains(${{ needs.info.changed-files.outputs.files }}, 'server') ||
       contains(${{ needs.info.changed-files.outputs.files }}, 'build') ||
       github.ref_name == 'main'
 
