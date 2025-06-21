@@ -39,6 +39,8 @@ jobs:
       - uses: mcbeet/check-commands@v1
         with:
           source: datapacks/modally_stranded
+          # TODO: unhardcode this
+          minecraft: "1.21.6"
 
   lint-yaml:
     name: Lint YAML
