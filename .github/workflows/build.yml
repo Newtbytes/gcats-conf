@@ -1,4 +1,4 @@
-name: Build & Publish
+name: Build Server with Pakku
 
 on:
   push:
