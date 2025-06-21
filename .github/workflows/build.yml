@@ -2,6 +2,19 @@ name: Build & Publish
 
 on:
   push:
+    branches: [main]
+  pull_request:
+    paths:
+      - '**.json'
+      - '**.yml'
+      - '**.yaml'
+      - '**.mcmeta'
+      - '**.mcfunction'
+      - '**.py'
+      - 'requirements.txt'
+      - '.pakku'
+      - 'datapacks'
+      - '.github/workflows/build.yml'
   workflow_dispatch:
 
 env:
