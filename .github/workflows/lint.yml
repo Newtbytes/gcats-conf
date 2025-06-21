@@ -40,6 +40,37 @@ jobs:
         with:
           source: datapacks/modally_stranded
 
+  validate-resourcepack:
+    name: Validate server resource pack
+
+    runs-on: ubuntu-latest
+
+    needs: [validate]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build requirements
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build resource pack
+        run: |
+          mkdir -p build
+          beet
+
+      - name: Run pack validator
+        uses: MrKinau/ResourcePackValidator@v2
+        with:
+          # TODO: unhardcode server name
+          resourcepack: build/GCATs.zip
+          config: config.json
+
   lint-yaml:
     name: Lint YAML
 
