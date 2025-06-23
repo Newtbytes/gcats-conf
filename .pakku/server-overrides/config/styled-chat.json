@@ -89,7 +89,7 @@
             },
             "display_name": "<light_purple>${vanillaDisplayName}</light_purple>",
             "message_formats": {
-                "chat": "${player} <dark_gray>»</dark_gray> <gold>${message}",
+                "chat": "${player} <dark_gray>»</dark_gray> ${message}",
                 "base_death": ""
             },
             "formatting": {},
