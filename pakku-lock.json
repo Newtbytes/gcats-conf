@@ -1979,6 +1979,44 @@
             ]
         },
         {
+            "pakku_id": "9am6uOXSPkcj2tfA",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "offlinecommands"
+            },
+            "name": {
+                "modrinth": "OfflineCommands"
+            },
+            "id": {
+                "modrinth": "rkgXkDl7"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "OfflineCommands-1.0.2+1.21.5.jar",
+                    "mc_versions": [
+                        "1.21.5"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/rkgXkDl7/versions/ollrfxwS/OfflineCommands-1.0.2+1.21.5.jar",
+                    "id": "ollrfxwS",
+                    "parent_id": "rkgXkDl7",
+                    "hashes": {
+                        "sha512": "47888a7604bb88ce965fed4abb7bcaff905dc89c3658edb028a5a2afd4669e980e75b72be8f3b9361511a23703370ce94d5839d59e0e9c975fe2f9b57fe8ae89",
+                        "sha1": "e6fb5ee31befec5858375ddb93b61ebe6d6d329c"
+                    },
+                    "required_dependencies": [],
+                    "size": 158767,
+                    "date_published": "2025-04-22T13:28:04.287503Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "XaUUnHMyJote2kNi",
             "type": "MOD",
             "side": "SERVER",
