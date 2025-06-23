@@ -87,9 +87,9 @@
                 "permission": "group.admin",
                 "operator": 4
             },
-            "display_name": "<purple>${vanillaDisplayName}</purple>",
+            "display_name": "<light_purple>${vanillaDisplayName}</light_purple>",
             "message_formats": {
-                "chat": "${player} <dark_gray>»</dark_gray> <orange>${message}",
+                "chat": "${player} <dark_gray>»</dark_gray> <gold>${message}",
                 "base_death": ""
             },
             "formatting": {},
