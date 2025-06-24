@@ -90,11 +90,11 @@ jobs:
       BEET: python -m beet
 
     if: |
-      contains(${{ needs.info.changed-files.outputs.files }}, 'pakku') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'mod') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'datapack') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'server') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'build') ||
+      contains(${{ needs.info.outputs.changed-files }}, 'pakku') ||
+      contains(${{ needs.info.outputs.changed-files }}, 'mod') ||
+      contains(${{ needs.info.outputs.changed-files }}, 'datapack') ||
+      contains(${{ needs.info.outputs.changed-files }}, 'server') ||
+      contains(${{ needs.info.outputs.changed-files }}, 'build') ||
       github.ref_name == 'main'
 
     steps:
@@ -121,7 +121,7 @@ jobs:
           restore-keys: pakku-cache-
 
       - name: Download pakku.jar if not cached
-        if: steps.cache-pakku.outputs.cache-hit != 'true'
+        if: steps.cache-pakku-jar.outputs.cache-hit != 'true'
         run: |
           curl -OL https://github.com/juraj-hrivnak/Pakku/releases/download/${{ env.PAKKU_TAG }}/pakku.jar
 
