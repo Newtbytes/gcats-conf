@@ -80,49 +80,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v46.0.5
 
-  build-resource-pack:
-    runs-on: ubuntu-latest
-
-    needs: [info]
-
-    outputs:
-      filename: ${{ steps.get_filename.outputs.filename }}
-
-    if: |
-      contains(${{ needs.info.changed-files.outputs.files }}, 'beet') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'datapack') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'resourcepack') ||
-      contains(${{ needs.info.changed-files.outputs.files }}, 'build') ||
-      github.ref_name == 'main'
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Get filename
-        id: get_filename
-        run: echo "filename=${{ needs.info.outputs.server_name }}.zip" >> $GITHUB_OUTPUT
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install build requirements
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build resource pack
-        run: |
-          mkdir -p build
-          beet
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ steps.get_filename.outputs.filename }}
-          path: build/${{ steps.get_filename.outputs.filename }}
-          if-no-files-found: error
-
-  build-modpack:
+  build:
     runs-on: ubuntu-latest
 
     needs: [info]
@@ -137,18 +95,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Get mrpack info
-        id: mrpack
-        run: |
-          echo "filename=${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}.mrpack" >> $GITHUB_OUTPUT
-          echo "dir=build/modrinth" >> $GITHUB_OUTPUT
-
-      - name: Get serverpack info
-        id: serverpack
-        run: |
-          echo "filename=${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}.zip" >> $GITHUB_OUTPUT
-          echo "dir=build/serverpack" >> $GITHUB_OUTPUT
 
       - uses: actions/setup-java@v4
         with:
@@ -175,15 +121,25 @@ jobs:
         run: |
           curl -OL https://github.com/juraj-hrivnak/Pakku/releases/download/${{ env.PAKKU_TAG }}/pakku.jar
 
-      - name: Export modpack
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build requirements
         run: |
-          java -jar pakku.jar export
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run build
+        run: |
+          make build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ needs.info.outputs.server_name }}-${{ needs.info.outputs.server_version }}
           path: |
-            ${{ steps.mrpack.outputs.dir }}/${{ steps.mrpack.outputs.filename }}
-            ${{ steps.serverpack.outputs.dir }}/${{ steps.serverpack.outputs.filename }}
+            build/modrinth/*.mrpack
+            build/serverpack/*.zip
+            build/resourcepack/*.zip
           if-no-files-found: error
