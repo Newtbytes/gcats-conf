@@ -12,8 +12,8 @@ on:
       - '**.mcfunction'
       - '**.py'
       - 'requirements.txt'
-      - '.pakku'
-      - 'datapacks'
+      - '.pakku/**'
+      - 'datapacks/**'
       - '.github/workflows/build.yml'
   workflow_dispatch:
 
@@ -163,7 +163,7 @@ jobs:
           key: pakku-${{ env.PAKKU_TAG }}
 
       - name: Cache pakku
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache-pakku
         with:
           path: build/.cache
