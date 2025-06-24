@@ -85,6 +85,10 @@ jobs:
 
     needs: [info]
 
+    env:
+      PAKKU: java -jar pakku.jar
+      BEET: python -m beet
+
     if: |
       contains(${{ needs.info.changed-files.outputs.files }}, 'pakku') ||
       contains(${{ needs.info.changed-files.outputs.files }}, 'mod') ||
