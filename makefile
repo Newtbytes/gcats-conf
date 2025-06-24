@@ -21,12 +21,12 @@ build-server:
 	unzip -o build/serverpack/*.zip -d build/server
 
 	# Download fabric-launcher
-	curl -o build/server/fabric-launcher.jar -OJ https://meta.fabricmc.net/v2/versions/loader/$(MC_VERSION)/$(FABRIC_VERSION)/$(FABRIC_INSTALLER_VERSION)/server/jar
+	curl -o build/server/server.jar https://meta.fabricmc.net/v2/versions/loader/$(MC_VERSION)/$(FABRIC_VERSION)/$(FABRIC_INSTALLER_VERSION)/server/jar
 
 # Output:
 # - build/resourcepack/{server name}-{version}-resourcepack.zip
 build-resourcepack:
-	$(BEET)
+	$(BEET) --log debug
 
 build: build-server build-resourcepack
 
