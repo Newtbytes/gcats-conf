@@ -2184,6 +2184,51 @@
             ]
         },
         {
+            "pakku_id": "62Bnk4EkNwxvFTfH",
+            "pakku_links": [
+                "r9oUCVZY6KnoVpXs"
+            ],
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "save-and-load-inventories"
+            },
+            "name": {
+                "modrinth": "Save and Load Inventories"
+            },
+            "id": {
+                "modrinth": "W0UVc3e9"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "saveandloadinventories-1.21.5-3.5.jar",
+                    "mc_versions": [
+                        "1.21.5"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "forge",
+                        "neoforge",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/W0UVc3e9/versions/ZxSTDkKk/saveandloadinventories-1.21.5-3.5.jar",
+                    "id": "ZxSTDkKk",
+                    "parent_id": "W0UVc3e9",
+                    "hashes": {
+                        "sha512": "eac7bb3677b4f1eab49b011e157b6861834706eaee04533b69337ed6318d5f3d3e0787f7dd52a20a48823e6794fa9302bca909a821c3c2b91029b61d096c9ddd",
+                        "sha1": "1a19a5f17bc81f209575d77ba81d2828922a9c59"
+                    },
+                    "required_dependencies": [
+                        "e0M1UDsY"
+                    ],
+                    "size": 46995,
+                    "date_published": "2025-03-27T15:53:29.954605Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "jjiZvUrVIacoZ7Sd",
             "type": "MOD",
             "side": "BOTH",
