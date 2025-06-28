@@ -1,0 +1,53 @@
+{
+    "type": "root",
+    "children": {
+        "saveinventory": {
+            "type": "literal",
+            "children": {
+                "inventory-name": {
+                    "type": "argument",
+                    "children": {
+                        "player": {
+                            "type": "argument",
+                            "executable": true,
+                            "parser": "minecraft:entity",
+                            "properties": {
+                                "type": "players",
+                                "amount": "single"
+                            }
+                        }
+                    },
+                    "parser": "brigadier:string",
+                    "properties": {
+                        "type": "word"
+                    }
+                }
+            },
+            "required_level": 2
+        },
+        "loadinventory": {
+            "type": "literal",
+            "children": {
+                "inventory-name": {
+                    "type": "argument",
+                    "children": {
+                        "player": {
+                            "type": "argument",
+                            "executable": true,
+                            "parser": "minecraft:entity",
+                            "properties": {
+                                "type": "players",
+                                "amount": "single"
+                            }
+                        }
+                    },
+                    "parser": "brigadier:string",
+                    "properties": {
+                        "type": "word"
+                    }
+                }
+            },
+            "required_level": 2
+        }
+    }
+}
